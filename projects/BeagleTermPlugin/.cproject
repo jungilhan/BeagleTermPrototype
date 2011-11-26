@@ -26,9 +26,23 @@
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1481966837" languageId="org.eclipse.cdt.core.assembly" languageName="Assembly" sourceContentType="org.eclipse.cdt.core.asmSource" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
 							<tool id="org.eclipse.cdt.build.core.settings.holder.1867981312" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1103009961" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
+									<listOptionValue builtIn="false" value="../../../firebreath/src/3rdParty/boost"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/PluginCore"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/ScriptingCore"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/PluginAuto"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/NPAPIHost"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/WebKitCore"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/ActiveXCore"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/NpapiCore"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/WebKitCore/libs"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/WebKitCore/3rdParty"/>
+									<listOptionValue builtIn="false" value="../../../firebreath/src/WebKitCore/config"/>
+								</option>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1467090270" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
 							<tool id="org.eclipse.cdt.build.core.settings.holder.695032046" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1266017308" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath"/>
 								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1770879259" languageId="org.eclipse.cdt.core.gcc" languageName="GNU C" sourceContentType="org.eclipse.cdt.core.cSource,org.eclipse.cdt.core.cHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
 							</tool>
 						</toolChain>
