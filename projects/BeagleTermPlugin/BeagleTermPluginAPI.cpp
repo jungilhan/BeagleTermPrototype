@@ -11,6 +11,11 @@
 
 #include "BeagleTermPluginAPI.h"
 
+#include <iostream>
+#include <stdio.h>
+
+#include "SSHTerminal.hpp"
+
 ///////////////////////////////////////////////////////////////////////////////
 /// @fn BeagleTermPluginAPI::BeagleTermPluginAPI(const BeagleTermPluginPtr& plugin, const FB::BrowserHostPtr host)
 ///
@@ -21,21 +26,24 @@
 /// @see FB::JSAPIAuto::registerProperty
 /// @see FB::JSAPIAuto::registerEvent
 ///////////////////////////////////////////////////////////////////////////////
-BeagleTermPluginAPI::BeagleTermPluginAPI(const BeagleTermPluginPtr& plugin, const FB::BrowserHostPtr& host) : m_plugin(plugin), m_host(host)
+BeagleTermPluginAPI::BeagleTermPluginAPI(const BeagleTermPluginPtr& plugin, const FB::BrowserHostPtr& host) : m_plugin(plugin), m_host(host), m_terminal(0)
 {
-    registerMethod("echo",      make_method(this, &BeagleTermPluginAPI::echo));
-    registerMethod("testEvent", make_method(this, &BeagleTermPluginAPI::testEvent));
+    std::cout << "[BeagleTermPluginAPI::BeagleTermPluginAPI] " << std::endl;
 
-    // Read-write property
-    registerProperty("testString",
-                     make_property(this,
-                        &BeagleTermPluginAPI::get_testString,
-                        &BeagleTermPluginAPI::set_testString));
+    // Properties
+    registerProperty("host", make_property(this, &BeagleTermPluginAPI::getUrl, &BeagleTermPluginAPI::setUrl));
+    registerProperty("port", make_property(this, &BeagleTermPluginAPI::getPort, &BeagleTermPluginAPI::setPort));
+    registerProperty("user", make_property(this, &BeagleTermPluginAPI::getUser, &BeagleTermPluginAPI::setUser));
+    registerProperty("error", make_property(this, &BeagleTermPluginAPI::getError));
 
-    // Read-only property
-    registerProperty("version",
-                     make_property(this,
-                        &BeagleTermPluginAPI::get_version));
+    // Methods
+    registerMethod("connect",  make_method(this, &BeagleTermPluginAPI::connect));
+    registerMethod("disconnect",  make_method(this, &BeagleTermPluginAPI::disconnect));
+    registerMethod("verifyKnownHost",  make_method(this, &BeagleTermPluginAPI::verifyKnownHost));
+    registerMethod("writeKnownHost",  make_method(this, &BeagleTermPluginAPI::writeKnownHost));
+    registerMethod("userauthPassword",  make_method(this, &BeagleTermPluginAPI::userauthPassword));
+    registerMethod("write",  make_method(this, &BeagleTermPluginAPI::write));
+    registerMethod("read",  make_method(this, &BeagleTermPluginAPI::read));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -66,34 +74,141 @@ BeagleTermPluginPtr BeagleTermPluginAPI::getPlugin()
     return plugin;
 }
 
-
-
-// Read/Write property testString
-std::string BeagleTermPluginAPI::get_testString()
+std::string BeagleTermPluginAPI::getUrl()
 {
-    return m_testString;
-}
-void BeagleTermPluginAPI::set_testString(const std::string& val)
-{
-    m_testString = val;
+    return m_url;
 }
 
-// Read-only property version
-std::string BeagleTermPluginAPI::get_version()
+void BeagleTermPluginAPI::setUrl(const std::string& url)
 {
-    return FBSTRING_PLUGIN_VERSION;
+    m_url = url;
 }
 
-// Method echo
-FB::variant BeagleTermPluginAPI::echo(const FB::variant& msg)
+std::string BeagleTermPluginAPI::getPort()
 {
-    static int n(0);
-    fire_echo(msg, n++);
-    return msg;
+    return m_port;
 }
 
-void BeagleTermPluginAPI::testEvent(const FB::variant& var)
+void BeagleTermPluginAPI::setPort(const std::string& port)
 {
-    fire_fired(var, true, 1);
+    m_port = port;
 }
 
+std::string BeagleTermPluginAPI::getUser()
+{
+    return m_user;
+}
+
+void BeagleTermPluginAPI::setUser(const std::string& user)
+{
+    m_user = user;
+}
+
+std::string BeagleTermPluginAPI::getError()
+{
+    return m_error;
+}
+
+void BeagleTermPluginAPI::connect(const std::string& host, const std::string& port, const boost::optional<std::string> user)
+{
+    if (user.is_initialized()) {
+        m_url = host;
+        m_user = user.get();
+    } else {
+        m_url = tokenizeHost(host);
+        m_user = tokenizeUser(host);
+    }
+
+    m_port = port;
+    std::cout << "[BeagleTermPluginAPI::connect] " << m_user + "@" + m_url + ":" + m_port<< std::endl;
+
+
+    if (m_terminal)
+        delete m_terminal;
+
+    m_terminal = new SSHTerminal();
+    m_terminal->connect(m_url, m_port, m_user);
+}
+
+void BeagleTermPluginAPI::disconnect()
+{
+    std::cout << "[BeagleTermPluginAPI::disconnect] " << std::endl;
+
+    delete m_terminal;
+    m_terminal = 0;
+}
+
+int BeagleTermPluginAPI::verifyKnownHost()
+{
+    std::cout << "[BeagleTermPluginAPI::verifyKnownHost] " << std::endl;
+
+    if (!m_terminal)
+        return -1;
+
+    return m_terminal->verifyKnownHost(m_error);
+}
+
+int BeagleTermPluginAPI::writeKnownHost()
+{
+    std::cout << "[BeagleTermPluginAPI::writeKnownHost] " << std::endl;
+
+    if (!m_terminal)
+        return -1;
+
+    return m_terminal->writeKnownHost();
+}
+
+int BeagleTermPluginAPI::userauthPassword(const std::string& password)
+{
+    std::cout << "[BeagleTermPluginAPI::userauthPassword] " << password << std::endl;
+
+    if (!m_terminal)
+        return -1;
+
+    return m_terminal->userauthPassword(password);
+}
+
+void BeagleTermPluginAPI::write(int keyCode)
+{
+    std::cout << "[BeagleTermPluginAPI::write] " << keyCode << " 0x" << std::hex << keyCode << std::endl;
+
+    if (!m_terminal)
+        return;
+
+    m_terminal->write(keyCode);
+}
+
+std::string BeagleTermPluginAPI::read()
+{
+    //std::cout << "[BeagleTermPluginAPI::read] " << std::endl;
+
+    return m_terminal->read();
+}
+
+std::string BeagleTermPluginAPI::tokenizeHost(std::string userNHost)
+{
+    std::string host;
+
+    int index = userNHost.find("@");
+    if (index >= 0) {
+        host = userNHost.substr(index + 1);
+    } else {
+        fprintf(stderr, "[BeagleTermPluginAPI::tokenizeHost] Invalid value of token: %s\n", userNHost.c_str());
+    }
+
+    return host;
+}
+
+std::string BeagleTermPluginAPI::tokenizeUser(std::string userNHost)
+{
+    std::string user;
+
+    int index = userNHost.find("@");
+    if (index >= 0) {
+        user = userNHost.substr(0, index);
+    } else {
+        fprintf(stderr, "[BeagleTermPluginAPI::tokenizeUser] Invalid value of token: %s\n", userNHost.c_str());
+    }
+
+    return user;
+}

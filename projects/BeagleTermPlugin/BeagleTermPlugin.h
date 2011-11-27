@@ -15,6 +15,7 @@
 
 #include "PluginCore.h"
 
+class SSHTerminal;
 
 FB_FORWARD_PTR(BeagleTermPlugin)
 class BeagleTermPlugin : public FB::PluginCore
@@ -53,8 +54,13 @@ public:
     virtual bool onWindowAttached(FB::AttachedEvent *evt, FB::PluginWindow *);
     virtual bool onWindowDetached(FB::DetachedEvent *evt, FB::PluginWindow *);
     /** END EVENTDEF -- DON'T CHANGE THIS LINE **/
-};
 
+public:
+    SSHTerminal* getTerminal() { return m_terminal; }
+
+private:
+    SSHTerminal* m_terminal;
+};
 
 #endif
 

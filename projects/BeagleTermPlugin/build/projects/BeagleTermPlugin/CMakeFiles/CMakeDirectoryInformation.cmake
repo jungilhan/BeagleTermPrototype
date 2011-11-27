@@ -33,6 +33,7 @@ SET(CMAKE_C_INCLUDE_PATH
   "projects/BeagleTermPlugin/gen"
   "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost"
   "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/config"
+  "../libs/libssh-0.5.2/include"
   )
 SET(CMAKE_CXX_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
 SET(CMAKE_Fortran_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})

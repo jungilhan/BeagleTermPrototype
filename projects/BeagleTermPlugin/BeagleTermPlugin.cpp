@@ -8,8 +8,12 @@
 \**********************************************************/
 
 #include "BeagleTermPluginAPI.h"
-
 #include "BeagleTermPlugin.h"
+
+#include <iostream>
+#include <assert.h>
+
+//#include "SSHTerminal.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @fn BeagleTermPlugin::StaticInitialize()
@@ -22,6 +26,7 @@ void BeagleTermPlugin::StaticInitialize()
 {
     // Place one-time initialization stuff here; As of FireBreath 1.4 this should only
     // be called once per process
+		std::cout << "[BeagleTermPlugin::StaticInitialize]" << std::endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -35,6 +40,7 @@ void BeagleTermPlugin::StaticDeinitialize()
 {
     // Place one-time deinitialization stuff here. As of FireBreath 1.4 this should
     // always be called just before the plugin library is unloaded
+    std::cout << "[BeagleTermPlugin::StaticDeinitialize]" << std::endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -44,6 +50,7 @@ void BeagleTermPlugin::StaticDeinitialize()
 ///////////////////////////////////////////////////////////////////////////////
 BeagleTermPlugin::BeagleTermPlugin()
 {
+    m_terminal = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -65,6 +72,10 @@ void BeagleTermPlugin::onPluginReady()
     // created, and we are ready to interact with the page and such.  The
     // PluginWindow may or may not have already fire the AttachedEvent at
     // this point.
+    std::cout << "[BeagleTermPlugin::onPluginReady]" << std::endl;
+
+		//assert(!m_terminal);
+		//m_terminal = new SSHTerminal();
 }
 
 void BeagleTermPlugin::shutdown()
@@ -74,6 +85,11 @@ void BeagleTermPlugin::shutdown()
     // object should be released here so that this object can be safely
     // destroyed. This is the last point that shared_from_this and weak_ptr
     // references to this object will be valid
+    std::cout << "[BeagleTermPlugin::shutdown]" << std::endl;
+
+		//if (m_terminal)
+		//    delete m_terminal;
+		//m_terminal = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -10842,12 +10842,6 @@ boost/function.hpp
 Win/WindowContextWin.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginAuto/Win/Win/WindowContextWin.h
 
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginAuto/X11/KeyCodesX11.cpp
-KeyCodesX11.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginAuto/X11/KeyCodesX11.h
-gdk/gdkkeysyms.h
--
-
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginAuto/X11/KeyCodesX11.h
 PluginEvents/KeyCodes.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginAuto/X11/PluginEvents/KeyCodes.h
@@ -12985,8 +12979,6 @@ gdk/gdktypes.h
 /usr/include/gtk-2.0/gdk/gdkkeys.h
 gdk/gdktypes.h
 -
-
-/usr/include/gtk-2.0/gdk/gdkkeysyms.h
 
 /usr/include/gtk-2.0/gdk/gdkpango.h
 gdk/gdktypes.h

@@ -137,6 +137,7 @@ bin/BeagleTermPlugin/npBeagleTermPlugin.so: ScriptingCore/libScriptingCore.a
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: PluginCore/libPluginCore.a
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: boost/libs/thread/libboost_thread.a
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: boost/libs/system/libboost_system.a
+bin/BeagleTermPlugin/npBeagleTermPlugin.so: ../libs/libssh-0.5.2/lib/libssh.so
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../../bin/BeagleTermPlugin/npBeagleTermPlugin.so"

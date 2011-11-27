@@ -30,7 +30,7 @@ BUILD_EXAMPLES:BOOL=OFF
 BeagleTermPlugin_BINARY_DIR:STATIC=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin
 
 //Dependencies for the target
-BeagleTermPlugin_LIB_DEPENDS:STATIC=general;PluginCore;general;BTP_PluginAuto;general;NpapiCore;general;ScriptingCore;general;PluginCore;general;boost_thread;general;boost_system;
+BeagleTermPlugin_LIB_DEPENDS:STATIC=general;PluginCore;general;BTP_PluginAuto;general;NpapiCore;general;ScriptingCore;general;PluginCore;general;boost_thread;general;boost_system;general;/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/libs/libssh-0.5.2/lib/libssh.so;
 
 //Value Computed by CMake
 BeagleTermPlugin_SOURCE_DIR:STATIC=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin
@@ -40,7 +40,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON

@@ -22,29 +22,41 @@ public:
 
     BeagleTermPluginPtr getPlugin();
 
-    // Read/Write property ${PROPERTY.ident}
-    std::string get_testString();
-    void set_testString(const std::string& val);
+    std::string getUrl();
+    void setUrl(const std::string& url);
 
-    // Read-only property ${PROPERTY.ident}
-    std::string get_version();
+    std::string getPort();
+    void setPort(const std::string& port);
 
-    // Method echo
-    FB::variant echo(const FB::variant& msg);
-    
-    // Event helpers
-    FB_JSAPI_EVENT(fired, 3, (const FB::variant&, bool, int));
-    FB_JSAPI_EVENT(echo, 2, (const FB::variant&, const int));
-    FB_JSAPI_EVENT(notify, 0, ());
+    std::string getUser();
+    void setUser(const std::string& user);
 
-    // Method test-event
-    void testEvent(const FB::variant& s);
+    std::string getError();
+
+    void connect(const std::string& host, const std::string& port, const boost::optional<std::string> user);
+    void disconnect();
+    int verifyKnownHost();
+    int writeKnownHost();
+    int userauthPassword(const std::string& password);
+    void write(int keyCode);
+    std::string read();
+
+private:
+    std::string tokenizeHost(std::string userNHost);
+    std::string tokenizeUser(std::string userNHost);
 
 private:
     BeagleTermPluginWeakPtr m_plugin;
     FB::BrowserHostPtr m_host;
 
-    std::string m_testString;
+    std::string m_url;
+    std::string m_port;
+    std::string m_user;
+
+    std::string m_error;
+
+private:
+    SSHTerminal* m_terminal;
 };
 
 #endif // H_BeagleTermPluginAPI

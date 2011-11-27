@@ -936,6 +936,10 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o
+ ../libs/libssh-0.5.2/include/libssh/legacy.h
+ ../libs/libssh-0.5.2/include/libssh/libssh.h
+ ../libs/libssh-0.5.2/include/libssh/libsshpp.hpp
+ ../libs/libssh-0.5.2/include/libssh/server.h
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/algorithm/string/compare.hpp
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/algorithm/string/concept.hpp
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/algorithm/string/config.hpp
@@ -1873,6 +1877,8 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cp
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.cpp
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
+ /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Dispatcher.hpp
+ /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.hpp
  projects/BeagleTermPlugin/gen/global/config.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/aligned_storage.hpp

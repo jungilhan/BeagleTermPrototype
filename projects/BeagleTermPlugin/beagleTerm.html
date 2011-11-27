@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>BeagleTerm - Chrome based SSH client</title>	
+	
+	<script src="http://code.jquery.com/jquery-1.7.min.js" type="text/javascript"></script>	
+	<style type="text/css">
+		h1 {
+			color: lightgray;
+		}
+		
+		body {
+			background-color: #494949;
+			font-family: "맑은 고딕",  arial, sans-serif, gulim;
+			color: gray;
+		}
+		
+		.container {
+			border: 1px solid #C6C6C6;
+			background-color: white;
+			-webkit-border-radius: 15px;
+			-moz-border-radius: 15px;
+			margin: 10px;
+			padding-left: 20px;
+		}
+		
+		#mini-term-container {
+			height: 600px;			
+		}
+		
+		#mini-term {
+			border: 3px solid gray;
+			background-color: black;
+			color: white;
+			height: 600px;
+			overflow: auto;
+		}
+		
+		.default {
+			color: white;
+		}
+		
+		.bold {
+			font-weight: bold;
+		}
+		
+		.italic {
+			font-style: italic;
+		}
+		
+		.underline {
+			text-decoration: underline;
+		}
+		
+		.black {
+			color: black;
+		}
+		
+		.red {
+			color: red;
+		}
+		
+		.green {
+			color: green;
+		}
+		
+		.yellow {
+			color: yellow;
+		}
+		
+		.blue {
+			color: #1E90FF;
+		}
+		
+		.magenta {
+			color: magenta;
+		}
+		
+		.cyan {
+			color: cyan;
+		}
+		
+		.white {
+			color: white;
+		}
+		
+		
+	</style>
+	
+	<script type="text/javascript">
+		$(document).ready(function() { 
+			$("#key-input").keyup(function(event) {	
+				/*
+				if (event.keyCode >= 65 && event.keyCode <= 90 
+					|| event.keyCode >= 97 && event.keyCode <= 122) 
+				{			
+					$("#key-output").html("KeyCode: " + event.keyCode);
+					beagleTerm().write(event.keyCode);
+				}
+				*/
+				
+				switch (event.keyCode) {
+				case 0x08:
+					$("#key-output").html("KeyCode: " + event.keyCode);
+					beagleTerm().write(0x7F);
+					break;
+				}
+			});
+			
+			$("#key-input").keypress(function(event) {
+			//	if (event.keyCode >= 65 && event.keyCode <= 90 
+			//		|| event.keyCode >= 97 && event.keyCode <= 122) 
+				{
+					$("#key-output").html("KeyWhich: " + event.which);
+					beagleTerm().write(event.keyCode);
+					if (event.keyCode == 0x0D)
+						$("#key-input").val("");
+				}
+			});			
+		});
+		
+		var beagleTerm = function() {
+			return document.getElementById('beagle-term');
+		}
+
+		var pluginLoad = function() {
+			alert("application/x-beagletermplugin loaded");
+		}
+		
+		var onProperty = function() {
+			var host = beagleTerm().host;
+			var port = beagleTerm().port;
+			var user = beagleTerm().user;
+			
+			alert("[host] " + host + " [port] " + port + " [user] " + user);
+		}
+		
+		var onError = function() {
+			alert(beagleTerm().error);
+		}
+		
+		var setHost = function() {
+			beagleTerm().host = "localhost";
+		}
+		
+		var setPort = function() {
+			beagleTerm().port = "22";
+		}
+		
+		var setUser = function() {
+			beagleTerm().user = "jihan";
+		}
+		
+		var connect1 = function() {
+			// 타이머 종료 코드 필요 
+			
+			beagleTerm().connect("jihan@localhost", "22");
+		}
+		
+		var connect2 = function() {
+			// 타이머 종료 코드 필요 
+			
+			beagleTerm().connect("211.45.70.240", "22", "jihan");
+		}
+		
+		var disconnect = function() {
+			beagleTerm().disconnect();
+		}
+		
+		var verifyKnownHost = function() {
+			var state = beagleTerm().verifyKnownHost();
+			switch (state) {
+			case 1:
+				if (confirm(beagleTerm().error))
+					beagleTerm().writeKnownHost();
+				break;		
+			case -1:
+				alert(beagleTerm().error());
+				break;
+			}
+		}
+		
+		var userauthPassword = function() {
+			var ret = beagleTerm().userauthPassword("jihan");
+			if (ret != -1) {
+				setInterval(function() {
+					var stream = beagleTerm().read();
+					if (stream.length > 0) {				
+						// 공백 문자 변환
+						regExp = /\x20/g;
+						stream = stream.replace(regExp, "&nbsp;");
+						
+						// 탭 문자 변환
+						regExp = /\t/g;
+						stream = stream.replace(regExp, "&nbsp;&nbsp;&nbsp;&nbsp;");
+																			
+						// 개행 문자 변환								
+						regExp = /(\x0D\x0A)/g;
+						stream = stream.replace(regExp, "<br>");					
+
+						// Esc[01;30m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x30\x6D/g;
+						stream = stream.replace(regExp, "<span class='black bold'>");
+												
+						// Esc[01;31m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x31\x6D/g;
+						stream = stream.replace(regExp, "<span class='red bold'>");
+						
+						// Esc[01;32m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x32\x6D/g;
+						stream = stream.replace(regExp, "<span class='green bold'>");
+
+						// Esc[01;33m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x33\x6D/g;
+						stream = stream.replace(regExp, "<span class='yellow bold'>");
+																		
+						// Esc[01;34m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x34\x6D/g;
+						stream = stream.replace(regExp, "<span class='blue bold'>");
+
+						// Esc[01;35m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x35\x6D/g;
+						stream = stream.replace(regExp, "<span class='magenta bold'>");
+												
+						// Esc[01;36m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x36\x6D/g;
+						stream = stream.replace(regExp, "<span class='cyan bold'>");
+
+						// Esc[01;37m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x37\x6D/g;
+						stream = stream.replace(regExp, "<span class='white bold>");
+
+						// Esc[01;39m
+						regExp = /\x1B\x5B.?\x31\x3B\x33\x37\x6D/g;
+						stream = stream.replace(regExp, "<span>");
+																		
+						// Esc[0m
+						regExp = /\x1B\x5B\x30\x6D/g;
+						stream = stream.replace(regExp, "</span>");
+																		
+						// 터미널 프롬프트 앞에 오는 제어 문자 (용도 파악 못함)
+						regExp = /(\x1B\x5D\x30\x3B.*(\x07|\x1B))|\x1B\x5B\x6D/g;
+						stream = stream.replace(regExp, "");
+						
+						// 처리 못한 색상 코드 제거
+						regExp = /\x1B\x5b\d{0,3}m/g;
+						stream = stream.replace(regExp, "");
+
+						// 백스페이스 처리
+						var backspace = false;
+						regExp = /\x08\x1B\x5b\x4B/g;
+						if ((stream.match(regExp))) {
+							stream = stream.replace(regExp, "");							
+							backspace = true;
+						}
+						
+						// 화면 초기화
+						regExp = /\x1B\x5b\x32\x4A/g;
+						if ((stream.match(regExp))) {
+							stream = stream.replace(regExp, "");	
+							$("#mini-term").html(stream);
+							return;
+						}						
+						
+						if (backspace)
+							$("#mini-term").html($("#mini-term").html().substr(0, $("#mini-term").html().length - 1));						
+						else 						
+							$("#mini-term").html($("#mini-term").html() + stream);						
+					}
+				}, 100);
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<center>
+		<h1>BeagleTerm - Chrome based SSH client</h1>
+	</center>
+	
+	<object id="beagle-term" type="application/x-beagletermplugin" width="0" height="0">
+	    <param name="onload" value="pluginLoad" />
+	</object>
+	
+	<div class="container">
+		<h2>Properties</h2>
+		<ul>
+			<li>
+				<h3>Write</h3>
+				<ul>
+					<li>
+						<input type="button" value="Host = localhost" onclick="setHost()"/>		
+					</li>
+					<li>
+						<input type="button" value="Port = 22" onclick="setPort()"/>	
+					</li>
+					<li>
+						<input type="button" value="User = jihan" onclick="setUser()"/>		
+					</li>										
+				</ul>
+			</li>
+
+			<li>
+				<h3>Read</h3>
+				<ul>
+					<li>
+						<input type="button" value="Properties" onclick="onProperty()"/>	
+					</li>
+					<li>
+						<input type="button" value="error" onclick="onError()"/>	
+					</li>												
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="container">
+		<h2>Methods</h2>
+		<ul>
+			<li>
+				<h3>void connect(user@host, port)</h3>
+				<ul>
+					<li>
+						<input type="button" value="connect(jihan@localhost, 22)" onclick="connect1()"/>			
+					</li>
+				</ul>
+			</li>
+			
+			<li>
+				<h3>void connect(host, port, user)</h3>
+				<ul>
+					<li>
+						<input type="button" value="connect(localhost, 22, jihan)" onclick="connect2()"/>
+					</li>
+				</ul>
+			</li>
+			
+			<li>
+				<h3>void disconnect()</h3>
+				<ul>
+					<li>
+						<input type="button" value="disconnect()" onclick="disconnect()"/>				
+					</li>
+				</ul>
+			</li>
+			
+			<li>
+				<h3>int verifyKnownHost()</h3>
+				<h3>int writeKnownHost()</h3>
+				<ul>
+					<li>
+						<input type="button" value="verifyKnownHost()" onclick="verifyKnownHost()"/>			
+					</li>
+				</ul>
+			</li>		
+			
+			<li>
+				<h3>int userauthPassword(password)</h3>
+				<ul>
+					<li>
+						<input type="button" value="userauthPassword(jihan)" onclick="userauthPassword()"/>			
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<h3>void write(keyCode)</h3>
+				<ul>
+					<li>
+						<input id="key-input" type="text" />
+						<div id="key-output">KeyCode: </div>
+					</li>
+				</ul>
+			</li>									
+		</ul>
+	</div>
+	
+	<div id="mini-term-container">
+		<p id="mini-term">
+		
+		</p>
+	</div>
+</body>
+</html>

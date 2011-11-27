@@ -6,6 +6,40 @@
 
 #IncludeRegexTransform: 
 
+../libs/libssh-0.5.2/include/libssh/legacy.h
+libssh/libssh.h
+../libs/libssh-0.5.2/include/libssh/libssh/libssh.h
+
+../libs/libssh-0.5.2/include/libssh/libssh.h
+unistd.h
+-
+inttypes.h
+-
+winsock2.h
+-
+sys/select.h
+-
+netdb.h
+-
+libssh/legacy.h
+../libs/libssh-0.5.2/include/libssh/libssh/legacy.h
+
+../libs/libssh-0.5.2/include/libssh/libsshpp.hpp
+libssh/libssh.h
+-
+libssh/server.h
+-
+stdlib.h
+-
+stdarg.h
+-
+stdio.h
+-
+
+../libs/libssh-0.5.2/include/libssh/server.h
+libssh/libssh.h
+../libs/libssh-0.5.2/include/libssh/libssh/libssh.h
+
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/algorithm/string/compare.hpp
 boost/algorithm/string/config.hpp
 -
@@ -10232,24 +10266,6 @@ boost/config.hpp
 boost/smart_ptr/weak_ptr.hpp
 -
 
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/FactoryBase.h
-string
--
-boost/shared_ptr.hpp
--
-boost/utility.hpp
--
-APITypes.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/APITypes.h
-FBPointers.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/FBPointers.h
-logging.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/logging.h
-PluginWindowForwardDecl.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/PluginWindowForwardDecl.h
-Carbon/Carbon.h
--
-
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/PluginCore.h
 PluginEventSink.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/PluginEventSink.h
@@ -10313,10 +10329,6 @@ string
 -
 PluginEventSource.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/PluginEventSource.h
-
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginCore/PluginWindowForwardDecl.h
-boost/shared_ptr.hpp
--
 
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/ScriptingCore/../3rdParty/utf8/utf8.h
 utf8/checked.h
@@ -10676,12 +10688,6 @@ limits.h
 wchar.h
 -
 
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.cpp
-BeagleTermPluginAPI.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
-BeagleTermPlugin.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
-
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
 PluginWindow.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/PluginWindow.h
@@ -10703,6 +10709,12 @@ global/config.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/global/config.h
 BeagleTermPluginAPI.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
+iostream
+-
+stdio.h
+-
+SSHTerminal.hpp
+/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.hpp
 
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
 string
@@ -10718,13 +10730,37 @@ BrowserHost.h
 BeagleTermPlugin.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
 
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Factory.cpp
-FactoryBase.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/FactoryBase.h
-BeagleTermPlugin.h
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
-boost/make_shared.hpp
+/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Dispatcher.hpp
+stdio.h
 -
+assert.h
+-
+sys/select.h
+-
+
+/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.hpp
+iostream
+-
+string
+-
+stdlib.h
+-
+string.h
+-
+errno.h
+-
+termios.h
+-
+unistd.h
+-
+assert.h
+-
+sys/ioctl.h
+-
+libssh/libsshpp.hpp
+/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/libssh/libsshpp.hpp
+Dispatcher.hpp
+/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Dispatcher.hpp
 
 projects/BeagleTermPlugin/gen/global/config.h
 

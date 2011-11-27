@@ -935,6 +935,10 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o: ../BeagleTermPlugin.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o: ../BeagleTermPluginAPI.h
 
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../libs/libssh-0.5.2/include/libssh/legacy.h
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../libs/libssh-0.5.2/include/libssh/libssh.h
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../libs/libssh-0.5.2/include/libssh/libsshpp.hpp
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../libs/libssh-0.5.2/include/libssh/server.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/algorithm/string/compare.hpp
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/algorithm/string/concept.hpp
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/algorithm/string/config.hpp
@@ -1872,6 +1876,8 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cp
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../BeagleTermPlugin.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../BeagleTermPluginAPI.cpp
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../BeagleTermPluginAPI.h
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../Dispatcher.hpp
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../SSHTerminal.hpp
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: projects/BeagleTermPlugin/gen/global/config.h
 
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o: /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/aligned_storage.hpp
