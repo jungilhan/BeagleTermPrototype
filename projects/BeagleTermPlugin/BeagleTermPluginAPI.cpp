@@ -10,11 +10,11 @@
 #include "global/config.h"
 
 #include "BeagleTermPluginAPI.h"
+#include "SSHTerminal.h"
+//#include "SSHTerminal.hpp"
 
 #include <iostream>
 #include <stdio.h>
-
-#include "SSHTerminal.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 /// @fn BeagleTermPluginAPI::BeagleTermPluginAPI(const BeagleTermPluginPtr& plugin, const FB::BrowserHostPtr host)
@@ -26,7 +26,7 @@
 /// @see FB::JSAPIAuto::registerProperty
 /// @see FB::JSAPIAuto::registerEvent
 ///////////////////////////////////////////////////////////////////////////////
-BeagleTermPluginAPI::BeagleTermPluginAPI(const BeagleTermPluginPtr& plugin, const FB::BrowserHostPtr& host) : m_plugin(plugin), m_host(host), m_terminal(0)
+BeagleTermPluginAPI::BeagleTermPluginAPI(const BeagleTermPluginPtr& plugin, const FB::BrowserHostPtr& host) : m_plugin(plugin), m_host(host)
 {
     std::cout << "[BeagleTermPluginAPI::BeagleTermPluginAPI] " << std::endl;
 
@@ -122,67 +122,50 @@ void BeagleTermPluginAPI::connect(const std::string& host, const std::string& po
     m_port = port;
     std::cout << "[BeagleTermPluginAPI::connect] " << m_user + "@" + m_url + ":" + m_port<< std::endl;
 
-
-    if (m_terminal)
-        delete m_terminal;
-
-    m_terminal = new SSHTerminal();
-    m_terminal->connect(m_url, m_port, m_user);
+    getPlugin()->getTerminal()->connect(m_url, m_port, m_user);
 }
 
 void BeagleTermPluginAPI::disconnect()
 {
     std::cout << "[BeagleTermPluginAPI::disconnect] " << std::endl;
 
-    delete m_terminal;
-    m_terminal = 0;
+    getPlugin()->getTerminal()->disconnect();
 }
 
 int BeagleTermPluginAPI::verifyKnownHost()
 {
     std::cout << "[BeagleTermPluginAPI::verifyKnownHost] " << std::endl;
 
-    if (!m_terminal)
-        return -1;
-
-    return m_terminal->verifyKnownHost(m_error);
+    return getPlugin()->getTerminal()->verifyKnownHost(m_error);
 }
 
 int BeagleTermPluginAPI::writeKnownHost()
 {
     std::cout << "[BeagleTermPluginAPI::writeKnownHost] " << std::endl;
 
-    if (!m_terminal)
-        return -1;
-
-    return m_terminal->writeKnownHost();
+    return getPlugin()->getTerminal()->writeKnownHost();
 }
 
 int BeagleTermPluginAPI::userauthPassword(const std::string& password)
 {
     std::cout << "[BeagleTermPluginAPI::userauthPassword] " << password << std::endl;
 
-    if (!m_terminal)
-        return -1;
-
-    return m_terminal->userauthPassword(password);
+    return getPlugin()->getTerminal()->userauthPassword(password);
 }
 
-void BeagleTermPluginAPI::write(int keyCode)
+int BeagleTermPluginAPI::write(int keyCode)
 {
     std::cout << "[BeagleTermPluginAPI::write] " << keyCode << " 0x" << std::hex << keyCode << std::endl;
 
-    if (!m_terminal)
-        return;
 
-    m_terminal->write(keyCode);
+    return getPlugin()->getTerminal()->write(static_cast<char>(keyCode));
 }
 
 std::string BeagleTermPluginAPI::read()
 {
     //std::cout << "[BeagleTermPluginAPI::read] " << std::endl;
 
-    return m_terminal->read();
+    return getPlugin()->getTerminal()->read();
 }
 
 std::string BeagleTermPluginAPI::tokenizeHost(std::string userNHost)

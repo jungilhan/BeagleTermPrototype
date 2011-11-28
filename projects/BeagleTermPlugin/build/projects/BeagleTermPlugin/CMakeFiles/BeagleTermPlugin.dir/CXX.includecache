@@ -35,6 +35,8 @@ stdarg.h
 -
 stdio.h
 -
+string
+-
 
 ../libs/libssh-0.5.2/include/libssh/server.h
 libssh/libssh.h
@@ -10709,12 +10711,12 @@ global/config.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/global/config.h
 BeagleTermPluginAPI.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
+SSHTerminal.h
+/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.h
 iostream
 -
 stdio.h
 -
-SSHTerminal.hpp
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.hpp
 
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
 string
@@ -10730,37 +10732,11 @@ BrowserHost.h
 BeagleTermPlugin.h
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
 
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Dispatcher.hpp
-stdio.h
--
-assert.h
--
-sys/select.h
--
-
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.hpp
-iostream
--
-string
--
-stdlib.h
--
-string.h
--
-errno.h
--
-termios.h
--
-unistd.h
--
-assert.h
--
-sys/ioctl.h
--
+/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.h
 libssh/libsshpp.hpp
 /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/libssh/libsshpp.hpp
-Dispatcher.hpp
-/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Dispatcher.hpp
+string
+-
 
 projects/BeagleTermPlugin/gen/global/config.h
 

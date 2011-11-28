@@ -181,6 +181,30 @@ Factory.cpp.s:
 	cd /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build && $(MAKE) -f projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.s
 .PHONY : Factory.cpp.s
 
+SSHTerminal.o: SSHTerminal.cpp.o
+.PHONY : SSHTerminal.o
+
+# target to build an object file
+SSHTerminal.cpp.o:
+	cd /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build && $(MAKE) -f projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o
+.PHONY : SSHTerminal.cpp.o
+
+SSHTerminal.i: SSHTerminal.cpp.i
+.PHONY : SSHTerminal.i
+
+# target to preprocess a source file
+SSHTerminal.cpp.i:
+	cd /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build && $(MAKE) -f projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.i
+.PHONY : SSHTerminal.cpp.i
+
+SSHTerminal.s: SSHTerminal.cpp.s
+.PHONY : SSHTerminal.s
+
+# target to generate assembly for a file
+SSHTerminal.cpp.s:
+	cd /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build && $(MAKE) -f projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.s
+.PHONY : SSHTerminal.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -199,6 +223,9 @@ help:
 	@echo "... Factory.o"
 	@echo "... Factory.i"
 	@echo "... Factory.s"
+	@echo "... SSHTerminal.o"
+	@echo "... SSHTerminal.i"
+	@echo "... SSHTerminal.s"
 .PHONY : help
 
 

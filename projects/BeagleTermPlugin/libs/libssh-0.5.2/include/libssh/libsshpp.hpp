@@ -57,6 +57,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <string>
 
 namespace ssh {
 
@@ -253,6 +254,10 @@ public:
   void disconnect(){
     ssh_disconnect(c_session);
   }
+
+  int isConnected() {
+    return ssh_is_connected(c_session);
+  }
   /** @brief Returns the disconnect message from the server, if any
    * @returns pointer to the message, or NULL. Do not attempt to free
    * the pointer.
@@ -369,7 +374,7 @@ public:
    * @see ssh_channel_forward_accept
    * @see Session::listenForward
    */
-  Channel *acceptForward(int timeout_ms);
+  //Channel *acceptForward(int timeout_ms);
   /* acceptForward is implemented later in this file */
 
   void_throwable cancelForward(const char *address, int port){
@@ -596,7 +601,7 @@ private:
   Channel &operator=(const Channel &);
 };
 
-
+#if 0
 /* This code cannot be put inline due to references to Channel */
 Channel *Session::acceptForward(int timeout_ms){
     ssh_channel forward = ssh_forward_accept(c_session,
@@ -605,6 +610,7 @@ Channel *Session::acceptForward(int timeout_ms){
     Channel *newchan = new Channel(*this,forward);
     return newchan;
   }
+#endif
 
 } // namespace ssh
 

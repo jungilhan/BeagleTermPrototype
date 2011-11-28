@@ -118,11 +118,36 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o.provides
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o.provides.build: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o
 .PHONY : projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o.provides.build
 
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/flags.make
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o: ../SSHTerminal.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o"
+	cd /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o -c /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.cpp
+
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.i"
+	cd /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.cpp > CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.i
+
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.s"
+	cd /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.cpp -o CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.s
+
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.requires:
+.PHONY : projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.requires
+
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.provides: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.requires
+	$(MAKE) -f projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.provides.build
+.PHONY : projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.provides
+
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.provides.build: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o
+.PHONY : projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.provides.build
+
 # Object files for target BeagleTermPlugin
 BeagleTermPlugin_OBJECTS = \
 "CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o" \
 "CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o" \
-"CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o"
+"CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o" \
+"CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o"
 
 # External object files for target BeagleTermPlugin
 BeagleTermPlugin_EXTERNAL_OBJECTS =
@@ -130,6 +155,7 @@ BeagleTermPlugin_EXTERNAL_OBJECTS =
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o
+bin/BeagleTermPlugin/npBeagleTermPlugin.so: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: PluginCore/libPluginCore.a
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: projects/BeagleTermPlugin/PluginAuto/libBTP_PluginAuto.a
 bin/BeagleTermPlugin/npBeagleTermPlugin.so: NpapiCore/libNpapiCore.a
@@ -150,6 +176,7 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build: bin/BeagleTermP
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/requires: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o.requires
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/requires: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o.requires
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/requires: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o.requires
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/requires: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o.requires
 .PHONY : projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/requires
 
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/clean:

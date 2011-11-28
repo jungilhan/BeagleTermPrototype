@@ -13,6 +13,7 @@
 #include <iostream>
 #include <assert.h>
 
+#include "SSHTerminal.h"
 //#include "SSHTerminal.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -74,8 +75,8 @@ void BeagleTermPlugin::onPluginReady()
     // this point.
     std::cout << "[BeagleTermPlugin::onPluginReady]" << std::endl;
 
-		//assert(!m_terminal);
-		//m_terminal = new SSHTerminal();
+		assert(!m_terminal);
+		m_terminal = new SSHTerminal();
 }
 
 void BeagleTermPlugin::shutdown()
@@ -87,9 +88,10 @@ void BeagleTermPlugin::shutdown()
     // references to this object will be valid
     std::cout << "[BeagleTermPlugin::shutdown]" << std::endl;
 
-		//if (m_terminal)
-		//    delete m_terminal;
-		//m_terminal = 0;
+		if (m_terminal) {
+		    delete m_terminal;
+		    m_terminal = 0;
+		}
 }
 
 ///////////////////////////////////////////////////////////////////////////////

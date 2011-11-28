@@ -38,7 +38,7 @@ public:
     int verifyKnownHost();
     int writeKnownHost();
     int userauthPassword(const std::string& password);
-    void write(int keyCode);
+    int write(int keyCode);
     std::string read();
 
 private:
@@ -54,9 +54,6 @@ private:
     std::string m_user;
 
     std::string m_error;
-
-private:
-    SSHTerminal* m_terminal;
 };
 
 #endif // H_BeagleTermPluginAPI

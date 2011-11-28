@@ -1876,8 +1876,7 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cp
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../BeagleTermPlugin.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../BeagleTermPluginAPI.cpp
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../BeagleTermPluginAPI.h
-projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../Dispatcher.hpp
-projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../SSHTerminal.hpp
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: ../SSHTerminal.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o: projects/BeagleTermPlugin/gen/global/config.h
 
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o: /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/aligned_storage.hpp
@@ -2670,4 +2669,5 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o: /home/j
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o: /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/config/fb_stdint.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o: ../BeagleTermPlugin.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o: ../Factory.cpp
+
 

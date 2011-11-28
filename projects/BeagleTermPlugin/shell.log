@@ -1,0 +1,180 @@
+Linux ubuntu 2.6.32-35-generic-pae #78-Ubuntu SMP Tue Oct 11 17:01:12 UTC 2011 i686 GNU/Linux
+Ubuntu 10.04.3 LTS
+
+Welcome to Ubuntu!
+ * Documentation:  https://help.ubuntu.com/
+
+1 package can be updated.
+0 updates are security updates.
+
+Last login: Sun Nov 27 18:47:09 2011 from localhost
+]0;jihan@ubuntu: ~jihan@ubuntu:~$ ls
+[0m[01;34mDesktop[0m  [01;34mDocuments[0m  [01;34mDownloads[0m  [01;34mMusic[0m  [01;34mPictures[0m  [01;34mPublic[0m  [01;34mTemplates[0m  [01;34mVideos[0m  [01;34mWorkspace[0m  [01;36meclipse[0m  examples.desktop
+[m]0;jihan@ubuntu: ~jihan@ubuntu:~$ ls -all합계 388
+drwxr-xr-x 42 jihan jihan  4096 2011-11-28 03:23 [0m[01;34m.[0m
+drwxr-xr-x  3 root  root   4096 2011-10-24 03:35 [01;34m..[0m
+-rw-------  1 jihan jihan  8590 2011-11-28 03:16 .ICEauthority
+drwx------  3 jihan jihan  4096 2011-11-03 21:53 [01;34m.adobe[0m
+drwxr-xr-x  3 jihan jihan  4096 2011-10-28 00:32 [01;34m.android[0m
+-rw-------  1 jihan jihan 49766 2011-11-28 01:31 .bash_history
+-rw-r--r--  1 jihan jihan   220 2011-10-24 03:35 .bash_logout
+-rw-r--r--  1 jihan jihan  3458 2011-11-22 20:49 .bashrc
+drwx------ 10 jihan jihan  4096 2011-11-28 03:16 [01;34m.cache[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-07 18:03 [01;34m.cgdb[0m
+drwxr-xr-x 13 jihan jihan  4096 2011-11-18 22:46 [01;34m.config[0m
+drwx------  3 jihan jihan  4096 2011-10-24 03:51 [01;34m.dbus[0m
+-rw-r--r--  1 jihan jihan    31 2011-11-28 03:16 .dmrc
+-rw-------  1 jihan jihan    16 2011-10-24 03:51 .esd_auth
+drwxr-xr-x  3 jihan jihan  4096 2011-11-18 22:46 [01;34m.evolution[0m
+drwx------  2 jihan jihan  4096 2011-11-04 00:55 [01;34m.filezilla[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-20 18:27 [01;34m.fontconfig[0m
+drwx------  4 jihan jihan  4096 2011-11-28 03:16 [01;34m.gconf[0m
+drwx------  2 jihan jihan  4096 2011-11-28 03:29 [01;34m.gconfd[0m
+drwx------  4 jihan jihan  4096 2011-11-20 18:27 [01;34m.gegl-0.0[0m
+drwxr-xr-x 22 jihan jihan  4096 2011-11-24 00:18 [01;34m.gimp-2.6[0m
+-rw-r--r--  1 jihan jihan    77 2011-11-26 08:51 .gitconfig
+-rw-r-----  1 jihan jihan     0 2011-11-22 22:48 .gksu.lock
+drwx------  9 jihan jihan  4096 2011-11-28 00:04 [01;34m.gnome2[0m
+drwx------  2 jihan jihan  4096 2011-10-24 03:51 [01;34m.gnome2_private[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 17:52 [01;34m.gstreamer-0.10[0m
+-rw-r--r--  1 jihan jihan   176 2011-11-28 03:16 .gtk-bookmarks
+dr-x------  2 jihan jihan     0 2011-11-28 03:16 [01;34m.gvfs[0m
+drwx------  3 jihan jihan  4096 2011-11-14 01:16 [01;34m.kde[0m
+drwx------  3 jihan jihan  4096 2011-10-24 17:05 [01;34m.local[0m
+drwxr-xr-x  3 jihan jihan  4096 2011-10-28 00:29 [01;34m.m2[0m
+drwx------  3 jihan jihan  4096 2011-11-03 21:53 [01;34m.macromedia[0m
+drwx------  3 jihan jihan  4096 2011-11-18 22:46 [01;34m.mission-control[0m
+drwx------  5 jihan jihan  4096 2011-11-22 18:01 [01;34m.mozilla[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34m.nautilus[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34m.netbook-launcher-efl[0m
+drwx------  3 jihan jihan  4096 2011-10-24 18:48 [01;34m.pki[0m
+-rw-r--r--  1 jihan jihan   700 2011-10-24 17:10 .profile
+drwx------  2 jihan jihan  4096 2011-11-28 03:16 [01;34m.pulse[0m
+-rw-------  1 jihan jihan   256 2011-10-24 03:51 .pulse-cookie
+-rw-------  1 jihan jihan 67202 2011-11-28 03:23 .recently-used.xbel
+drwx------  2 jihan jihan  4096 2011-11-27 00:26 [01;34m.ssh[0m
+-rw-r--r--  1 jihan jihan     0 2011-10-24 17:06 .sudo_as_admin_successful
+drwxr-xr-x  2 jihan jihan  4096 2011-11-07 18:02 [01;34m.tgdb[0m
+drwx------  4 jihan jihan  4096 2011-11-03 22:48 [01;34m.thumbnails[0m
+drwx------  2 jihan jihan  4096 2011-10-24 03:52 [01;34m.update-notifier[0m
+-rw-------  1 jihan jihan 24670 2011-11-27 23:36 .viminfo
+-rw-r--r--  1 jihan jihan   179 2011-11-18 23:10 .vimrc
+-rw-------  1 jihan jihan 12109 2011-11-28 03:29 .xsession-errors
+-rw-------  1 jihan jihan 10585 2011-11-28 01:31 .xsession-errors.old
+drwxr-xr-x  2 jihan jihan  4096 2011-11-15 16:26 [01;34mDesktop[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-28 01:10 [01;34mDocuments[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-28 01:10 [01;34mDownloads[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mMusic[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-26 15:18 [01;34mPictures[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mPublic[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mTemplates[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mVideos[0m
+drwxr-xr-x  9 jihan jihan  4096 2011-11-18 22:43 [01;34mWorkspace[0m
+lrwxrwxrwx  1 jihan jih합계 388
+drwxr-xr-x 42 jihan jihan  4096 2011-11-28 03:23 [0m[01;34m.[0m
+drwxr-xr-x  3 root  root   4096 2011-10-24 03:35 [01;34m..[0m
+-rw-------  1 jihan jihan  8590 2011-11-28 03:16 .ICEauthority
+drwx--ls[K[KLinux ubuntu 2.6.32-35-generic-pae #78-Ubuntu SMP Tue Oct 11 17:01:12 UTC 2011 i686 GNU/Linux
+Ubuntu 10.04.3 LTS
+
+Welcome to Ubuntu!
+ * Documentation:  https://help.ubuntu.com/
+
+1 package can be updated.
+0 updates are security updates.
+
+Last login: Mon Nov 28 05:03:39 2011 from localhost
+]0;jihan@ubuntu: ~jihan@ubuntu:~$ ls
+[0m[01;34mDesktop[0m    [01;34mDownloads[0m  [01;34mPictures[0m  [01;34mTemplates[0m  [01;34mWorkspace[0m  examples.desktop
+[01;34mDocuments[0m  [01;34mMusic[0m      [01;34mPublic[0m    [01;34mVideos[0m     [01;36meclipse[0m
+[m]0;jihan@ubuntu: ~jihan@ubuntu:~$ ls -al
+
+합계 396
+drwxr-xr-x 42 jihan jihan  4096 2011-11-28 04:31 [0m[01;34m.[0m
+drwxr-xr-x  3 root  root   4096 2011-10-24 03:35 [01;34m..[0m
+-rw-------  1 jihan jihan  8590 2011-11-28 03:16 .ICEauthority
+drwx------  3 jihan jihan  4096 2011-11-03 21:53 [01;34m.adobe[0m
+drwxr-xr-x  3 jihan jihan  4096 2011-10-28 00:32 [01;34m.android[0m
+-rw-------  1 jihan jihan 49762 2011-11-28 05:03 .bash_history
+-rw-r--r--  1 jihan jihan   220 2011-10-24 03:35 .bash_logout
+-rw-r--r--  1 jihan jihan  3458 2011-11-22 20:49 .bashrc
+drwx------ 10 jihan jihan  4096 2011-11-28 03:16 [01;34m.cache[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-07 18:03 [01;34m.cgdb[0m
+drwxr-xr-x 13 jihan jihan  4096 2011-11-18 22:46 [01;34m.config[0m
+drwx------  3 jihan jihan  4096 2011-10-24 03:51 [01;34m.dbus[0m
+-rw-r--r--  1 jihan jihan    31 2011-11-28 03:16 .dmrc
+-rw-------  1 jihan jihan    16 2011-10-24 03:51 .esd_auth
+drwxr-xr-x  3 jihan jihan  4096 2011-11-18 22:46 [01;34m.evolution[0m
+drwx------  2 jihan jihan  4096 2011-11-04 00:55 [01;34m.filezilla[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-20 18:27 [01;34m.fontconfig[0m
+drwx------  4 jihan jihan  4096 2011-11-28 03:16 [01;34m.gconf[0m
+drwx------  2 jihan jihan  4096 2011-11-28 05:29 [01;34m.gconfd[0m
+drwx------  4 jihan jihan  4096 2011-11-20 18:27 [01;34m.gegl-0.0[0m
+drwxr-xr-x 22 jihan jihan  4096 2011-11-24 00:18 [01;34m.gimp-2.6[0m
+-rw-r--r--  1 jihan jihan    77 2011-11-26 08:51 .gitconfig
+-rw-r-----  1 jihan jihan     0 2011-11-22 22:48 .gksu.lock
+drwx------  9 jihan jihan  4096 2011-11-28 00:04 [01;34m.gnome2[0m
+drwx------  2 jihan jihan  4096 2011-10-24 03:51 [01;34m.gnome2_private[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 17:52 [01;34m.gstreamer-0.10[0m
+-rw-r--r--  1 jihan jihan   176 2011-11-28 03:16 .gtk-bookmarks
+dr-x------  2 jihan jihan     0 2011-11-28 03:16 [01;34m.gvfs[0m
+drwx------  3 jihan jihan  4096 2011-11-14 01:16 [01;34m.kde[0m
+drwx------  3 jihan jihan  4096 2011-10-24 17:05 [01;34m.local[0m
+drwxr-xr-x  3 jihan jihan  4096 2011-10-28 00:29 [01;34m.m2[0m
+drwx------  3 jihan jihan  4096 2011-11-03 21:53 [01;34m.macromedia[0m
+drwx------  3 jihan jihan  4096 2011-11-18 22:46 [01;34m.mission-control[0m
+drwx------  5 jihan jihan  4096 2011-11-22 18:01 [01;34m.mozilla[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34m.nautilus[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34m.netbook-launcher-efl[0m
+drwx------  3 jihan jihan  4096 2011-10-24 18:48 [01;34m.pki[0m
+-rw-r--r--  1 jihan jihan   700 2011-10-24 17:10 .profile
+drwx------  2 jihan jihan  4096 2011-11-28 03:16 [01;34m.pulse[0m
+-rw-------  1 jihan jihan   256 2011-10-24 03:51 .pulse-cookie
+-rw-------  1 jihan jihan 67833 2011-11-28 04:31 .recently-used.xbel
+drwx------  2 jihan jihan  4096 2011-11-27 00:26 [01;34m.ssh[0m
+-rw-r--r--  1 jihan jihan     0 2011-10-24 17:06 .sudo_as_admin_successful
+drwxr-xr-x  2 jihan jihan  4096 2011-11-07 18:02 [01;34m.tgdb[0m
+drwx------  4 jihan jihan  4096 2011-11-03 22:48 [01;34m.thumbnails[0m
+drwx------  2 jihan jihan  4096 2011-10-24 03:52 [01;34m.update-notifier[0m
+-rw-------  1 jihan jihan 24670 2011-11-27 23:36 .viminfo
+-rw-r--r--  1 jihan jihan   179 2011-11-18 23:10 .vimrc
+-rw-------  1 jihan jihan 20267 2011-11-28 05:29 .xsession-errors
+-rw-------  1 jihan jihan 10585 2011-11-28 01:31 .xsession-errors.old
+drwxr-xr-x  2 jihan jihan  4096 2011-11-15 16:26 [01;34mDesktop[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-28 01:10 [01;34mDocuments[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-28 01:10 [01;34mDownloads[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mMusic[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-11-26 15:18 [01;34mPictures[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mPublic[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mTemplates[0m
+drwxr-xr-x  2 jihan jihan  4096 2011-10-24 03:51 [01;34mVideos[0m
+drwxr-xr-x  9 jihan jihan  4096 2011-11-18 22:43 [01;34mWorkspace[0m
+lrwxrwxrwx  1 jihan j
+합계 396
+drwxr-xr-x 42 jihan jihan  4096 2011-11-28 04:31 [0m[01;34m.[0m
+drwxr-xr-x  3 root  root   4096 2011-10-24 03:35 [01;34m..[0m
+-rw-------  1 jihan jihan  8590 2011-11-28 03:16 .ICEauthority
+drwxclear
+[H[2J]0;jihan@ubuntu: ~jihan@ubuntu:~$ 
+]0;jihan@ubuntu: ~jihan@ubuntu:~$ 
+]0;jihan@ubuntu: ~jihan@ubuntu:~$ Linux ubuntu 2.6.32-35-generic-pae #78-Ubuntu SMP Tue Oct 11 17:01:12 UTC 2011 i686 GNU/Linux
+Ubuntu 10.04.3 LTS
+
+Welcome to Ubuntu!
+ * Documentation:  https://help.ubuntu.com/
+
+1 package can be updated.
+0 updates are security updates.
+
+Last login: Mon Nov 28 05:29:20 2011 from localhost
+]0;jihan@ubuntu: ~jihan@ubuntu:~$ Linux ubuntu 2.6.32-35-generic-pae #78-Ubuntu SMP Tue Oct 11 17:01:12 UTC 2011 i686 GNU/Linux
+Ubuntu 10.04.3 LTS
+
+Welcome to Ubuntu!
+ * Documentation:  https://help.ubuntu.com/
+
+1 package can be updated.
+0 updates are security updates.
+
+Last login: Mon Nov 28 08:25:48 2011 from localhost
+]0;jihan@ubuntu: ~jihan@ubuntu:~$ 

@@ -71,7 +71,7 @@ cmake_common/preinstall:
 cmake_common/CMakeFiles/FireBreath_Cmake.dir/all:
 	$(MAKE) -f cmake_common/CMakeFiles/FireBreath_Cmake.dir/build.make cmake_common/CMakeFiles/FireBreath_Cmake.dir/depend
 	$(MAKE) -f cmake_common/CMakeFiles/FireBreath_Cmake.dir/build.make cmake_common/CMakeFiles/FireBreath_Cmake.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  10
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  11
 	@echo "Built target FireBreath_Cmake"
 .PHONY : cmake_common/CMakeFiles/FireBreath_Cmake.dir/all
 
@@ -121,7 +121,7 @@ boost/libs/thread/preinstall:
 boost/libs/thread/CMakeFiles/boost_thread.dir/all:
 	$(MAKE) -f boost/libs/thread/CMakeFiles/boost_thread.dir/build.make boost/libs/thread/CMakeFiles/boost_thread.dir/depend
 	$(MAKE) -f boost/libs/thread/CMakeFiles/boost_thread.dir/build.make boost/libs/thread/CMakeFiles/boost_thread.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  66 67 68
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  67 68 69
 	@echo "Built target boost_thread"
 .PHONY : boost/libs/thread/CMakeFiles/boost_thread.dir/all
 
@@ -171,7 +171,7 @@ boost/libs/system/preinstall:
 boost/libs/system/CMakeFiles/boost_system.dir/all:
 	$(MAKE) -f boost/libs/system/CMakeFiles/boost_system.dir/build.make boost/libs/system/CMakeFiles/boost_system.dir/depend
 	$(MAKE) -f boost/libs/system/CMakeFiles/boost_system.dir/build.make boost/libs/system/CMakeFiles/boost_system.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  65
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  66
 	@echo "Built target boost_system"
 .PHONY : boost/libs/system/CMakeFiles/boost_system.dir/all
 
@@ -222,7 +222,7 @@ ScriptingCore/CMakeFiles/ScriptingCore.dir/all: boost/libs/thread/CMakeFiles/boo
 ScriptingCore/CMakeFiles/ScriptingCore.dir/all: boost/libs/system/CMakeFiles/boost_system.dir/all
 	$(MAKE) -f ScriptingCore/CMakeFiles/ScriptingCore.dir/build.make ScriptingCore/CMakeFiles/ScriptingCore.dir/depend
 	$(MAKE) -f ScriptingCore/CMakeFiles/ScriptingCore.dir/build.make ScriptingCore/CMakeFiles/ScriptingCore.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45
 	@echo "Built target ScriptingCore"
 .PHONY : ScriptingCore/CMakeFiles/ScriptingCore.dir/all
 
@@ -272,7 +272,7 @@ PluginCore/preinstall:
 PluginCore/CMakeFiles/PluginCore.dir/all:
 	$(MAKE) -f PluginCore/CMakeFiles/PluginCore.dir/build.make PluginCore/CMakeFiles/PluginCore.dir/depend
 	$(MAKE) -f PluginCore/CMakeFiles/PluginCore.dir/build.make PluginCore/CMakeFiles/PluginCore.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  19 20 21 22 23 24 25 26 27
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  20 21 22 23 24 25 26 27 28
 	@echo "Built target PluginCore"
 .PHONY : PluginCore/CMakeFiles/PluginCore.dir/all
 
@@ -323,7 +323,7 @@ NpapiCore/CMakeFiles/NpapiCore.dir/all: boost/libs/thread/CMakeFiles/boost_threa
 NpapiCore/CMakeFiles/NpapiCore.dir/all: boost/libs/system/CMakeFiles/boost_system.dir/all
 	$(MAKE) -f NpapiCore/CMakeFiles/NpapiCore.dir/build.make NpapiCore/CMakeFiles/NpapiCore.dir/depend
 	$(MAKE) -f NpapiCore/CMakeFiles/NpapiCore.dir/build.make NpapiCore/CMakeFiles/NpapiCore.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  11 12 13 14 15 16 17 18
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  12 13 14 15 16 17 18 19
 	@echo "Built target NpapiCore"
 .PHONY : NpapiCore/CMakeFiles/NpapiCore.dir/all
 
@@ -428,7 +428,7 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: NpapiCore/CMakeFi
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: projects/BeagleTermPlugin/PluginAuto/CMakeFiles/BTP_PluginAuto.dir/all
 	$(MAKE) -f projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/depend
 	$(MAKE) -f projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build.make projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  7 8 9
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  7 8 9 10
 	@echo "Built target BeagleTermPlugin"
 .PHONY : projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all
 
@@ -438,7 +438,7 @@ all: projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all
 
 # Build rule for subdir invocation for target.
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles 47
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles 48
 	$(MAKE) -f CMakeFiles/Makefile2 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles 0
 .PHONY : projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/rule
@@ -478,7 +478,7 @@ unittest-cpp/UnitTest++/preinstall:
 unittest-cpp/UnitTest++/CMakeFiles/UnitTest++.dir/all:
 	$(MAKE) -f unittest-cpp/UnitTest++/CMakeFiles/UnitTest++.dir/build.make unittest-cpp/UnitTest++/CMakeFiles/UnitTest++.dir/depend
 	$(MAKE) -f unittest-cpp/UnitTest++/CMakeFiles/UnitTest++.dir/build.make unittest-cpp/UnitTest++/CMakeFiles/UnitTest++.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63
 	@echo "Built target UnitTest++"
 .PHONY : unittest-cpp/UnitTest++/CMakeFiles/UnitTest++.dir/all
 
@@ -530,7 +530,7 @@ ScriptingCoreTest/CMakeFiles/UnitTest_ScriptingCore.dir/all: PluginCore/CMakeFil
 ScriptingCoreTest/CMakeFiles/UnitTest_ScriptingCore.dir/all: unittest-cpp/UnitTest++/CMakeFiles/UnitTest++.dir/all
 	$(MAKE) -f ScriptingCoreTest/CMakeFiles/UnitTest_ScriptingCore.dir/build.make ScriptingCoreTest/CMakeFiles/UnitTest_ScriptingCore.dir/depend
 	$(MAKE) -f ScriptingCoreTest/CMakeFiles/UnitTest_ScriptingCore.dir/build.make ScriptingCoreTest/CMakeFiles/UnitTest_ScriptingCore.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  63 64
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  64 65
 	@echo "Built target UnitTest_ScriptingCore"
 .PHONY : ScriptingCoreTest/CMakeFiles/UnitTest_ScriptingCore.dir/all
 

@@ -1877,8 +1877,7 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cp
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.cpp
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.h
- /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Dispatcher.hpp
- /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.hpp
+ /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.h
  projects/BeagleTermPlugin/gen/global/config.h
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/3rdParty/boost/boost/aligned_storage.hpp
@@ -2671,3 +2670,4 @@ projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/config/fb_stdint.h
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.h
  /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Factory.cpp
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o

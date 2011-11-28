@@ -12,7 +12,7 @@
 		
 		body {
 			background-color: #494949;
-			font-family: "맑은 고딕",  arial, sans-serif, gulim;
+			font-family: sans-serif;
 			color: gray;
 		}
 		
@@ -35,6 +35,8 @@
 			color: white;
 			height: 600px;
 			overflow: auto;
+			font-family: courier;
+			font-size: 13px;
 		}
 		
 		.default {
@@ -184,8 +186,14 @@
 		var userauthPassword = function() {
 			var ret = beagleTerm().userauthPassword("jihan");
 			if (ret != -1) {
-				setInterval(function() {
+				readTimer = setInterval(function() {
 					var stream = beagleTerm().read();
+					if (stream == "SSH_CHANNEL_DISCONNECTED") {
+						alert("SSH_CHANNEL_DISCONNECTED");
+						clearInterval(readTimer);
+						return;
+					}						
+					
 					if (stream.length > 0) {				
 						// 공백 문자 변환
 						regExp = /\x20/g;

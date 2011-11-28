@@ -7,6 +7,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPlugin.cpp" "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o"
   "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/BeagleTermPluginAPI.cpp" "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o"
   "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/Factory.cpp" "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o"
+  "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/SSHTerminal.cpp" "/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

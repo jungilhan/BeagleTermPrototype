@@ -2,6 +2,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/BeagleTermPlugin.dir/BeagleTermPluginAPI.cpp.o"
   "CMakeFiles/BeagleTermPlugin.dir/BeagleTermPlugin.cpp.o"
   "CMakeFiles/BeagleTermPlugin.dir/Factory.cpp.o"
+  "CMakeFiles/BeagleTermPlugin.dir/SSHTerminal.cpp.o"
   "../../bin/BeagleTermPlugin/npBeagleTermPlugin.pdb"
   "../../bin/BeagleTermPlugin/npBeagleTermPlugin.so"
 )
