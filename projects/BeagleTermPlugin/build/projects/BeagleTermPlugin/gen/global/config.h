@@ -33,7 +33,7 @@
                             "application/x-beagletermplugin::Beagle Term is a chrome-based SSH client.;" \
                             ""
 #define FBSTRING_MIMEType   FBSTRING_MIMETypeList
-#define FB_GUI_DISABLED         0
+#define FB_GUI_DISABLED         1
 /* #undef FB_ATLREG_MACHINEWIDE */
 #if FB_GUI_DISABLED == 1
 #define FBMAC_USE_CARBON                    0

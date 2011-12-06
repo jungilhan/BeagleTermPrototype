@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>BeagleTerm - Chrome based SSH client</title>	
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>	
+	<style type="text/css">
+		h1, h2, h3, h4, h5, h6, span{
+			margin: 0;
+			padding: 0;
+		}
+			
+		body {
+			background-color: #494949;
+			color: lightgray;
+			font-family: sans-serif;		
+		}
+		
+		#terminal {
+			background-color: black;
+			border: 1px solid #C6C6C6;
+			padding: 0;
+			margin: 0;
+			font-family: courier;
+			font-size: 14px;	
+			padding-bottom: 20px;		
+		}
+		
+		.terminal-line {
+			color: white;
+			/*order: 1px solid gray;*/
+			padding: 0;
+			margin: 0;
+			min-height: 16px;
+		}
+		
+		#cursor {
+			display: inline-block;
+			background-color: lime;
+			height: 12px;
+			width: 10px;
+		}
+		
+	</style>
+	
+	<script type="text/javascript">
+		$(document).ready(function() { 			
+			$("body").keypress(function(event) {
+				console.log("[keypress] " + event.keyCode);
+				switch (event.keyCode) {				
+				case 0x0D:				
+					break;
+				}
+				beagleTerm().write(event.keyCode);									
+			});
+			
+			$("body").keyup(function(event) {
+				switch (event.keyCode) {
+				case 0x08:
+					beagleTerm().write(0x7F);
+				case 37: // left
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x44);					
+					break;
+				case 38: // up
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x41);
+					break;
+				case 39: // right
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x43);										
+					break;
+				case 40: // down
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x42);
+					break;
+				}
+			});
+		});
+			
+		var pluginLoaded = function() {
+			// #1 접속		
+			beagleTerm().connect("jihan@localhost", "22"); 
+			
+			// #2 인증
+			var retCode = beagleTerm().userauthPassword("jihan");
+			if (retCode != -1) {				
+				pollingTimer = setInterval(function() {
+					var stream = beagleTerm().read();
+			
+					if (stream == "SSH_CHANNEL_DISCONNECTED") {
+						alert("[ERRPR] SSH_CHANNEL_DISCONNECTED");
+						clearInterval(pollingTimer);
+						return;
+					}
+				
+					var lineText = VT100(stream);
+					appendLines(lineText);
+				}, 100);		
+			}			
+		}
+		
+		var beagleTerm = function() {
+			return document.getElementById("beagleterm-plugin");
+		}
+		
+		var appendLines = function(lines) {
+			if (lines.length == 0)
+				return;
+			
+			var $line;
+			for (var index = 0; index < lines.length; index++) {			
+				$line = $("<span></span>").addClass("terminal-line").html(lines[index]);			
+				$("#terminal").append($line);
+			}
+			
+			var $cursor = $("#cursor");
+			if ($cursor.length > 0)
+				$cursor.remove();
+			
+			$cursor = $("<span></span>").attr("id", "cursor");		
+			$("#terminal").last().append($cursor);
+		}
+		
+		var VT100 = function(stream) {
+			if (stream.length == 0)
+				return "";
+			
+			var preStream = preProcessor(stream);
+			
+			var lines = preStream.split("<br>");
+			console.log("===== [LINE] " + lines.length + " =====");
+			
+			var decodedLines = new Array(lines.length);
+			for (var index = 0; index < lines.length ; index++) {		
+				if (index == lines.length - 1)															
+					decodedLines[index] = processor(lines[index]);
+				else {
+					decodedLines[index] = processor(lines[index]) + "<br>";
+				}
+				//console.log("[" + index + "] " + decodedLines[index]);
+			}
+				
+			return decodedLines;
+		}
+
+		var preProcessor = function(stream) {
+			// 공백 문자 변환
+			var regExp = /\x20/g;
+			if (stream.match(regExp))
+				stream = stream.replace(regExp, "&nbsp;");
+			
+			// 탭 문자 변환
+			regExp = /\t/g;
+			if (stream.match(regExp))
+				stream = stream.replace(regExp, "&nbsp;&nbsp;&nbsp;&nbsp;");
+
+			// 개행 문자 변환
+			regExp = /(\x0D\x0A)/g;
+			if (stream.match(regExp))
+				stream = stream.replace(regExp, "<br>");
+			
+			return stream;			
+		}
+		
+		var processor = function(line) {
+			// 프롬프트 앞에 오는 초기화 코드 제거 - ]0; ~~~~ 
+			var regExp = /\x1b\x5d0\x3b.*\x07/g;
+			if (line.match(regExp))
+				line = line.replace(regExp, "");				
+			
+			// [임시] 색상 코드 무시
+			regExp = /\x1b\x5b.*?m/g;
+			if (line.match(regExp))					
+				line = line.replace(regExp, "");						
+			
+			for (var index = 0; index < line.length; index++) {
+				switch (line.charAt(index)) {
+				case '8':
+					break;
+				case '\b':
+					cursorBack(1);										
+					break;
+				}
+			}
+			
+			return line;
+		}
+		
+		var cursorBack = function(count) {
+	/*	
+			var $cursor = $("#cursor");
+			if ($cursor.length > 0)
+				$cursor.remove();
+			
+				if ($("#terminal").children().length > 0) {
+					var $lastLine = $("#terminal .terminal-line").last();
+					var $lastText = $lastLine.text();
+
+					if (lastText.length > 1) {			
+						$("<span></span>").text(lastText.slice(0, -1));
+						$("<span></span>").text(lastText[lastText.length - 1]);
+
+					} else {
+						$lastLine.attr("id", "cursor");
+					}
+					
+				}
+//			if (($("#terminal").last()).length > 0)
+//				$("#terminal").last().attr("id", "cursor");			
+	*/
+		}
+		
+	</script>	
+</head>
+<body>
+	<object id="beagleterm-plugin" type="application/x-beagletermplugin" width="0" height="0">
+		<param name="onload" value="pluginLoaded" />
+		"application/x-beagletermplugin" 플러그인을 찾을 수 없습니다.
+	</object>
+	
+	<div id="terminal">				
+	</div>
+</body>
+</html>

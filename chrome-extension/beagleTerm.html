@@ -1,0 +1,474 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>BeagleTerm - Chrome based SSH client</title>	
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>	
+	<style type="text/css">
+		h1, h2, h3, h4, h5, h6, span{
+			margin: 0;
+			padding: 0;
+		}
+			
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: black;
+			color: lightgray;
+			font-family: sans-serif;		
+			/*background-image: url(http://www.playwares.com/xe/files/attach/images/4766694/445/573/017/e-ma.jpg);*/
+		}
+		
+		#terminal {
+			background-color: black;
+			padding: 0;
+			margin: 0;
+			font-family: courier;
+			font-size: 14px;	
+			padding-bottom: 0px;
+			opacity: 0.9;
+		}
+		
+		.terminal-line {
+			color: white;
+			/*order: 1px solid gray;*/
+			padding: 0;
+			margin: 0;
+			min-height: 16px;
+		}
+		
+		#cursor {
+			display: inline-block;
+			background-color: lime;
+			height: 12px;
+			width: 10px;
+		}
+		
+		.default {
+			color: white;
+		}
+		
+		.bold {
+			font-weight: bold;
+		}
+		
+		.italic {
+			font-style: italic;
+		}
+		
+		.underline {
+			text-decoration: underline;
+		}
+		
+		.black {
+			color: black;
+		}
+		
+		.red {
+			color: red;
+		}
+		
+		.green {
+			color: green;
+		}
+		
+		.yellow {
+			color: yellow;
+		}
+		
+		.blue {
+			color: #1E90FF;
+		}
+		
+		.magenta {
+			color: magenta;
+		}
+		
+		.cyan {
+			color: cyan;
+		}
+		
+		.white {
+			color: white;
+		}
+		
+		#widget1 {
+			color: white;	
+			background-color: #4EBAFF;
+			padding-left: 10px;
+			padding-top: 10px;
+			border: 2px solid lightgray;		
+			width: 160px;
+			height: 80px;
+			position: fixed;
+			z-index: 1000000000;	
+			top: 50px;
+			right: -140px;
+			-webkit-border-radius: 1em;
+		}
+		
+		#widget2 {
+			color: white;
+			background-color: #FC575E;
+			padding-left: 10px;
+			padding-top: 10px;			
+			border: 2px solid lightgray;		
+			width: 160px;
+			height: 80px;
+			position: fixed;
+			z-index: 1000000000;	
+			top: 140px;
+			right: -140px;
+			-webkit-border-radius: 1em;			
+		}
+		
+		#widget3 {
+			color: white;	
+			background-color: #6bdb18;
+			padding-left: 10px;
+			padding-top: 10px;			
+			border: 2px solid lightgray;
+			width: 160px;
+			height: 80px;
+			position: fixed;
+			z-index: 1000000000;	
+			top: 230px;
+			right: -140px;
+			-webkit-border-radius: 1em;		
+		}
+
+		#widget4 {
+			color: white;	
+			background-color: #fba606;
+			padding-left: 10px;
+			padding-top: 10px;			
+			border: 2px solid lightgray;
+			width: 160px;
+			height: 80px;
+			position: fixed;
+			z-index: 1000000000;	
+			top: 320px;
+			right: -140px;
+			-webkit-border-radius: 1em;		
+		}		
+	</style>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			hideWidget();
+			
+			$("#widget1").click(function(){
+				widgetSlide($(this));
+			});
+
+			$("#widget2").click(function(){
+				widgetSlide($(this));
+			});
+			
+			$("#widget3").click(function(){
+				widgetSlide($(this));
+			});
+			
+			$("#widget4").click(function(){
+				widgetSlide($(this));
+			});			
+									
+			$("body").keypress(function(event) {
+				console.log("[keypress] " + event.keyCode);
+				switch (event.keyCode) {				
+				case 0x0D:				
+					break;
+				}
+				beagleTerm().write(event.keyCode);									
+			});
+			
+			$("body").keyup(function(event) {
+				switch (event.keyCode) {
+				case 0x08:
+					beagleTerm().write(0x7F);
+				case 37: // left
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x44);					
+					break;
+				case 38: // up
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x41);
+					break;
+				case 39: // right
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x43);										
+					break;
+				case 40: // down
+					beagleTerm().write(0x1B);
+					beagleTerm().write(0x5B);
+					beagleTerm().write(0x42);
+					break;
+				}
+			});
+		});
+			
+		var pluginLoaded = function() {
+			var username = getUrlVars()["username"];
+			var host = getUrlVars()["host"];
+			var ret = beagleTerm().connect(username + "@" + host, "22");  
+			var received_pass = prompt("Insert password"," ");
+			var init = true;
+			
+			// #2 인증
+			var retCode = beagleTerm().userauthPassword(received_pass);
+			if (retCode != -1) {								
+				
+				pollingTimer = setInterval(function() {
+					var stream = beagleTerm().read();
+			
+					if (stream == "SSH_CHANNEL_DISCONNECTED") {
+						alert("[ERRPR] SSH_CHANNEL_DISCONNECTED");
+						clearInterval(pollingTimer);
+						return;
+					}
+				
+					var lineText = VT100(stream);
+					appendLines(lineText);		
+					
+					// scroll to end 			
+					if (lineText.indexOf("<br>") > -1 || lineText.indexOf("<br>") > -1)
+						window.scrollTo(0, 100000);
+					
+					if (init) {
+						showWidget();
+						inti = false;
+					}
+				}, 100);		
+			} else {
+				alert("Permission denied, please try again.");
+			}	
+		}
+		
+		var beagleTerm = function() {
+			return document.getElementById("beagleterm-plugin");
+		}
+		
+		var appendLines = function(lines) {
+			if (lines.length == 0)
+				return;
+			
+			var $line;
+			for (var index = 0; index < lines.length; index++) {			
+				$line = $("<span></span>").addClass("terminal-line").html(lines[index]);			
+				$("#terminal").append($line);
+			}
+			
+			var $cursor = $("#cursor");
+			if ($cursor.length > 0)
+				$cursor.remove();
+			
+			$cursor = $("<span></span>").attr("id", "cursor");		
+			$("#terminal").last().append($cursor);
+		}
+		
+		var VT100 = function(stream) {
+			if (stream.length == 0)
+				return "";
+			
+			var preStream = preProcessor(stream);
+			
+			var lines = preStream.split("<br>");
+			console.log("===== [LINE] " + lines.length + " =====");
+			
+			var decodedLines = new Array(lines.length);
+			for (var index = 0; index < lines.length ; index++) {		
+				if (index == lines.length - 1)															
+					decodedLines[index] = processor(lines[index]);
+				else {
+					decodedLines[index] = processor(lines[index]) + "<br>";
+				}
+				//console.log("[" + index + "] " + decodedLines[index]);
+			}
+				
+			return decodedLines;
+		}
+
+		var preProcessor = function(stream) {
+			// 공백 문자 변환
+			var regExp = /\x20/g;
+			if (stream.match(regExp))
+				stream = stream.replace(regExp, "&nbsp;");
+			
+			// 탭 문자 변환
+			regExp = /\t/g;
+			if (stream.match(regExp))
+				stream = stream.replace(regExp, "&nbsp;&nbsp;&nbsp;&nbsp;");
+
+			// 개행 문자 변환
+			regExp = /(\x0D\x0A)/g;
+			if (stream.match(regExp))
+				stream = stream.replace(regExp, "<br>");
+			
+			return stream;			
+		}
+		
+		var processor = function(line) {
+			// 프롬프트 앞에 오는 초기화 코드 제거 - ]0; ~~~~ 
+			var regExp = /\x1b\x5d0\x3b.*\x07/g;
+			if (line.match(regExp))
+				line = line.replace(regExp, "");				
+			
+			// 터미널 프롬프트 앞에 오는 제어 문자 (용도 파악 못함)
+			regExp = /(\x1B\x5D\x30\x3B.*(\x07|\x1B))|\x1B\x5B\x6D/g;
+			line = line.replace(regExp, "");
+				
+			/*
+			// [임시] 색상 코드 무시
+			regExp = /\x1b\x5b.*?m/g;
+			if (line.match(regExp))					
+				line = line.replace(regExp, "");						
+			*/
+			
+			line = processorColor(line);
+			
+			for (var index = 0; index < line.length; index++) {
+				switch (line.charAt(index)) {
+				case '8':
+					break;
+				case '\b':
+					cursorBack(1);										
+					break;
+				}
+			}
+			
+			return line;
+		}
+
+		processorColor = function(line) {
+			// Esc[01;30m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x30\x6D/g;
+			line = line.replace(regExp, "<span class='black bold'>");
+								
+			// Esc[01;31m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x31\x6D/g;
+			line = line.replace(regExp, "<span class='red bold'>");
+		
+			// Esc[01;32m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x32\x6D/g;
+			line = line.replace(regExp, "<span class='green bold'>");
+
+			// Esc[01;33m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x33\x6D/g;
+			line = line.replace(regExp, "<span class='yellow bold'>");
+														
+			// Esc[01;34m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x34\x6D/g;
+			line = line.replace(regExp, "<span class='blue bold'>");
+
+			// Esc[01;35m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x35\x6D/g;
+			line = line.replace(regExp, "<span class='magenta bold'>");
+								
+			// Esc[01;36m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x36\x6D/g;
+			line = line.replace(regExp, "<span class='cyan bold'>");
+
+			// Esc[01;37m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x37\x6D/g;
+			line = line.replace(regExp, "<span class='white bold>");
+
+			// Esc[01;39m
+			regExp = /\x1B\x5B.?\x31\x3B\x33\x37\x6D/g;
+			line = line.replace(regExp, "<span>");
+														
+			// Esc[0m
+			regExp = /\x1B\x5B\x30\x6D/g;
+			line = line.replace(regExp, "</span>");
+
+			// 처리 못한 색상 코드 제거
+			regExp = /\x1B\x5b\d{0,3}m/g;
+			line = line.replace(regExp, "");			
+			
+			return line;
+		}
+					
+		// Read a page's GET URL variables and return them as an associative array.
+		var getUrlVars = function() {
+			var vars = [], hash;
+			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    	for(var i = 0; i < hashes.length; i++)
+		    	{
+				hash = hashes[i].split('=');
+				vars.push(hash[0]);
+				vars[hash[0]] = hash[1];
+			}
+			return vars;
+		}
+		
+		var showWidget = function() {
+			$("#widget1").fadeIn(100, function() {
+				$("#widget4").fadeIn(100, function() {
+					$("#widget2").fadeIn(100, function() {
+						$("#widget3").fadeIn();
+					});				
+				});			
+			});
+		}
+
+		var hideWidget = function() {
+			$("#widget1").hide();
+			$("#widget2").hide();
+			$("#widget3").hide();
+			$("#widget4").hide();			
+		}
+		
+		var widgetSlide = function($widget) {
+			if ($widget.css("right") == "-140px") {
+				$widget.animate({"right" : "-10px"}, "fast", "swing");
+			} else {
+				$widget.animate({"right" : "-140px"}, "fast", "swing");			
+			}
+		}
+				
+		var cursorBack = function(count) {
+/*		
+			var $cursor = $("#cursor");
+			if ($cursor.length > 0)
+				$cursor.remove();
+			
+			var $normalSpan;
+			var $cursorSpan;
+		
+			if ($("#terminal").children().length > 0) {
+				var $lastLine = $("#terminal .terminal-line").last();
+				var $lastText = $lastLine.text();
+
+
+				if (lastText.length > 1) {			
+					$normalSpan = $("<span></span>").text(lastText.slice(0, -1));
+					$cursorSpan = $("<span></span>").attr("id", "cursor").text(lastText[lastText.length - 1]);
+					$("#terminal").last().text($normalSpan.text() + $cursorSpan.text());
+				} else {
+					$lastLine.attr("id", "cursor");
+					//$("#terminal").last().attr("id", "cursor");	
+				}	
+			}
+*/			
+		}
+		
+	</script>	
+</head>
+<body>
+	<div id="widget1"><h2>클립보드</h2></div>
+	<div id="widget2"><h2>날씨</h2></div>
+	<div id="widget3"><h2>뉴스</h2></div>
+	<div id="widget4"><h2>SNS</h2></div>
+	
+	<div id="terminal">				
+	</div>
+	
+	<object id="beagleterm-plugin" type="application/x-beagletermplugin" width="0" height="0">
+		<param name="onload" value="pluginLoaded" />
+		"application/x-beagletermplugin" 플러그인을 찾을 수 없습니다.
+	</object>	
+</body>
+</html>

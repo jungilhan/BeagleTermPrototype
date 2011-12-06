@@ -218,8 +218,8 @@ ScriptingCore/preinstall:
 # Target rules for target ScriptingCore/CMakeFiles/ScriptingCore.dir
 
 # All Build rule for target.
-ScriptingCore/CMakeFiles/ScriptingCore.dir/all: boost/libs/thread/CMakeFiles/boost_thread.dir/all
 ScriptingCore/CMakeFiles/ScriptingCore.dir/all: boost/libs/system/CMakeFiles/boost_system.dir/all
+ScriptingCore/CMakeFiles/ScriptingCore.dir/all: boost/libs/thread/CMakeFiles/boost_thread.dir/all
 	$(MAKE) -f ScriptingCore/CMakeFiles/ScriptingCore.dir/build.make ScriptingCore/CMakeFiles/ScriptingCore.dir/depend
 	$(MAKE) -f ScriptingCore/CMakeFiles/ScriptingCore.dir/build.make ScriptingCore/CMakeFiles/ScriptingCore.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45
@@ -319,8 +319,8 @@ NpapiCore/preinstall:
 # Target rules for target NpapiCore/CMakeFiles/NpapiCore.dir
 
 # All Build rule for target.
-NpapiCore/CMakeFiles/NpapiCore.dir/all: boost/libs/thread/CMakeFiles/boost_thread.dir/all
 NpapiCore/CMakeFiles/NpapiCore.dir/all: boost/libs/system/CMakeFiles/boost_system.dir/all
+NpapiCore/CMakeFiles/NpapiCore.dir/all: boost/libs/thread/CMakeFiles/boost_thread.dir/all
 	$(MAKE) -f NpapiCore/CMakeFiles/NpapiCore.dir/build.make NpapiCore/CMakeFiles/NpapiCore.dir/depend
 	$(MAKE) -f NpapiCore/CMakeFiles/NpapiCore.dir/build.make NpapiCore/CMakeFiles/NpapiCore.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/CMakeFiles  12 13 14 15 16 17 18 19
@@ -420,8 +420,8 @@ projects/BeagleTermPlugin/preinstall:
 # Target rules for target projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir
 
 # All Build rule for target.
-projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: boost/libs/thread/CMakeFiles/boost_thread.dir/all
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: boost/libs/system/CMakeFiles/boost_system.dir/all
+projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: boost/libs/thread/CMakeFiles/boost_thread.dir/all
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: ScriptingCore/CMakeFiles/ScriptingCore.dir/all
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: PluginCore/CMakeFiles/PluginCore.dir/all
 projects/BeagleTermPlugin/CMakeFiles/BeagleTermPlugin.dir/all: NpapiCore/CMakeFiles/NpapiCore.dir/all

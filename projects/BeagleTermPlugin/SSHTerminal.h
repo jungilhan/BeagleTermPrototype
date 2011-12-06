@@ -1,10 +1,3 @@
-/*
- * SSHTerminal.h
- *
- *  Created on: 2011. 11. 28.
- *      Author: jihan
- */
-
 #ifndef SSHTERMINAL_H_
 #define SSHTERMINAL_H_
 

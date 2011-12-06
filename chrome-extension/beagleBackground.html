@@ -1,0 +1,19 @@
+<script src="./jquery.min.js" type="text/javascript"></script>	
+<script>	
+	$(document).ready(function() {
+		console.log("[beagleBackground.html] Ready!");		
+	});
+	
+	chrome.omnibox.onInputEntered.addListener(
+		function(text) {
+			console.log("[beagleBackground - inputEntered] " + text);
+			chrome.tabs.getSelected(null, function(tab) {
+					console.log("[beagleBackground - current Tab] " + tab.url);
+					var url = text.split("@");
+					console.log("[beagleBackground - current Tab] user: " + url[0] + " host: " + url[1]);
+					chrome.tabs.update(tab.id, {url: "beagleTerm.html?username=" + url[0] + "&" + "host=" + url[1]});
+			});			
+		}
+	);
+	
+</script>

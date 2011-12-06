@@ -1,0 +1,22 @@
+{
+	"name": "Beagle Term - Prototype",
+	"description" : "Chrome based SSH clinet",
+	"version": "0.0.0",
+	"homepage_url": "http://code.google.com/p/monkeylabs",
+	"background_page": "beagleBackground.html",
+	"omnibox": { "keyword" : "ssh" },
+	"icons":{
+		"16" : "images/beagleTerm16x16.png",
+		"24" : "images/beagleTerm24x24.png",
+		"48" : "images/beagleTerm48x48.png",
+		"128" : "images/beagleTerm128x128.png"
+	},  
+	"plugins": [
+		{ "path": "libs/libssh.so.4"},
+		{ "path": "libs/npBeagleTermPlugin.so" }
+	],
+	"permissions":[
+		"tabs"
+	]
+}
+

@@ -92,6 +92,7 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function() { 
+			
 			$("#key-input").keyup(function(event) {	
 				/*
 				if (event.keyCode >= 65 && event.keyCode <= 90 
@@ -187,12 +188,16 @@
 			var ret = beagleTerm().userauthPassword("jihan");
 			if (ret != -1) {
 				readTimer = setInterval(function() {
-					var stream = beagleTerm().read();
-					if (stream == "SSH_CHANNEL_DISCONNECTED") {
-						alert("SSH_CHANNEL_DISCONNECTED");
-						clearInterval(readTimer);
-						return;
-					}						
+				var stream = beagleTerm().read();
+				
+				if (stream == "SSH_CHANNEL_DISCONNECTED") {
+					alert("SSH_CHANNEL_DISCONNECTED");
+					clearInterval(readTimer);
+					return;
+				}
+					
+				//VT100(stream);
+				//$("#mini-term").html(VT100(stream));
 					
 					if (stream.length > 0) {				
 						// 공백 문자 변환
@@ -255,6 +260,11 @@
 						regExp = /\x1B\x5b\d{0,3}m/g;
 						stream = stream.replace(regExp, "");
 
+						// vi 편집기 제목 처리 앞 쪽에 오는 코드들 제거	
+						//regExp = /(\x1B\x5b\x3f.*(\x68|\x72|\x6c)|\x1b\x5b>c|\x1b\x5b\d*;\d*\x72|\x5b\x3f\d*h)/g;
+						//regExp = /\x5b\x3f\d*h)/g;
+						//stream = stream.replace(regExp, "");						
+						
 						// 백스페이스 처리
 						var backspace = false;
 						regExp = /\x08\x1B\x5b\x4B/g;
@@ -269,15 +279,81 @@
 							stream = stream.replace(regExp, "");	
 							$("#mini-term").html(stream);
 							return;
-						}						
+						}
 						
+						// 라인 wrap 모드 제거
+						regExp = /\x1B\x5b{0,6}(h|l)/g;
+						stream = stream.replace(regExp, "");
+					
 						if (backspace)
 							$("#mini-term").html($("#mini-term").html().substr(0, $("#mini-term").html().length - 1));						
 						else 						
-							$("#mini-term").html($("#mini-term").html() + stream);						
-					}
+							$("#mini-term").html($("#mini-term").html() + stream);
+											
+					} 
 				}, 100);
 			}
+			
+			var VT100 = function(stream) {
+				if (stream.length == 0)
+					return "";
+				
+				var preStream = preProcessor(stream);
+				
+				var lines = preStream.split("<br>");
+				console.log("===== [LINE] " + lines.length + " =====");
+				
+				for (var index = 0; index < lines.length; index++) {															
+					var decodedLine = processor(lines[index]);
+					console.log("[" + index + "] " + decodedLine);
+				}
+					
+				return lines;
+			};
+			
+			var preProcessor = function(stream) {
+				// 공백 문자 변환
+				var regExp = /\x20/g;
+				if (stream.match(regExp))
+					stream = stream.replace(regExp, "&nbsp;");
+				
+				// 탭 문자 변환
+				regExp = /\t/g;
+				if (stream.match(regExp))
+					stream = stream.replace(regExp, "&nbsp;&nbsp;&nbsp;&nbsp;");
+
+				// 개행 문자 변환
+				regExp = /(\x0D\x0A)/g;
+				if (stream.match(regExp))
+					stream = stream.replace(regExp, "<br>");
+				
+				return stream;			
+			};
+			
+			var processor = function(line) {
+				// 프롬프트 앞에 오는 초기화 코드 제거 - ]0; ~~~~ 
+				var regExp = /\x1b\x5d0\x3b.*\x07/g;
+				if (line.match(regExp))
+					line = line.replace(regExp, "");				
+				
+				/*
+				// 색상 코드 처리 (색상으로 둘러싸인 문제열 추출)
+				regExp =  /\x1b\x5b.*?m..*?\x1b\x5b0m/;
+				if (line.match(regExp)) {
+					// 0 - 모든 속성 초기화
+					regExp =  /\x1b\x5b.*?m/;					
+					line = line.replace(regExp, "<span class='default'>");
+				
+				}
+				*/
+				
+				// [임시] 색상 코드 무시
+				regExp = /\x1b\x5b.*?m/g;
+				if (line.match(regExp))					
+					line = line.replace(regExp, "");						
+				
+				return line;
+			};
 		}
 
 	</script>
@@ -361,8 +437,7 @@
 						<input type="button" value="verifyKnownHost()" onclick="verifyKnownHost()"/>			
 					</li>
 				</ul>
-			</li>		
-			
+			</li>		 
 			<li>
 				<h3>int userauthPassword(password)</h3>
 				<ul>

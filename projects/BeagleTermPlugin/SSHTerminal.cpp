@@ -1,10 +1,3 @@
-/*
- * SSHTerminal.cpp
- *
- *  Created on: 2011. 11. 28.
- *      Author: jihan
- */
-
 #include "SSHTerminal.h"
 
 #include <stdio.h>
@@ -14,6 +7,7 @@
 #include <errno.h>
 #include <iostream>
 
+#define FILE_LOG
 #define SAFE_DELETE(x) if ((x) != NULL) { delete x; x = NULL; }
 
 SSHTerminal::SSHTerminal() : m_channel(new ssh::Channel(m_session))
@@ -170,7 +164,7 @@ int SSHTerminal::userauthPassword(const std::string& password)
     case SSH_AUTH_PARTIAL:
     default:
         fprintf(stderr, "[SSHTerminal::userauthPassword] %s", m_session.getError());
-        break;
+        return -1;
     }
 
     return 0;
@@ -199,14 +193,26 @@ std::string SSHTerminal::read()
     char buffer[4096];
     std::string stream;
 
+#ifdef FILE_LOG
+    FILE* log = fopen("terminal.log", "a");
+#endif
+
     while ((readBytes = m_channel->readNonblocking(buffer, sizeof(buffer), false)) > 0) {
-        if (readBytes)
+        if (readBytes) {
             stream += std::string(buffer, readBytes);
-        else {
+
+#ifdef FILE_LOG
+            fwrite(stream.c_str(), readBytes, 1, log);
+#endif
+        } else {
             m_channel->sendEof();
             return std::string("SSH_CHANNEL_DISCONNECTED");
         }
     }
+
+#ifdef FILE_LOG
+    fclose(log);
+#endif
 
     if (!stream.empty())
         std::cout << stream << std::endl;

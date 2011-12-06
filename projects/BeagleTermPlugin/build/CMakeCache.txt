@@ -17,8 +17,8 @@
 //Value Computed by CMake
 BTP_PluginAuto_BINARY_DIR:STATIC=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin/build/projects/BeagleTermPlugin/PluginAuto
 
-//Dependencies for the target
-BTP_PluginAuto_LIB_DEPENDS:STATIC=general;gtk-x11-2.0;general;gdk-x11-2.0;general;atk-1.0;general;gio-2.0;general;pangoft2-1.0;general;gdk_pixbuf-2.0;general;m;general;pangocairo-1.0;general;cairo;general;pango-1.0;general;freetype;general;fontconfig;general;gobject-2.0;general;gmodule-2.0;general;gthread-2.0;general;rt;general;glib-2.0;
+//Dependencies for target
+BTP_PluginAuto_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
 BTP_PluginAuto_SOURCE_DIR:STATIC=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/PluginAuto
@@ -174,7 +174,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 FB_CONFIG_DIR:STRING=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath/src/config
 
 //No help, variable specified on the command line.
-FB_PROJECTS_DIR:UNINITIALIZED=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects
+FB_PROJECTS_DIR:UNINITIALIZED=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/projects/BeagleTermPlugin
 
 FB_ROOT:FILEPATH=/home/jihan/Workspace/MonkeyLabs/BeagleTerm/firebreath
 
